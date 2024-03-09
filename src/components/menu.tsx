@@ -1,14 +1,12 @@
-"use client"
 import Avatar from '@mui/material/Avatar';
 import Link from 'next/link';
-import { useState, useEffect } from "react";
+import React ,{ useEffect, useState }  from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Box } from '@mui/material';
 const Menu: React.FC = () => {
-    const [isDragged, setIsDragged] = useState(false);
     const [constraints, setConstraints] = useState({ left: 0, right: 0, top: 0, bottom: 0 });
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 0);
     const [isOpen,setIsOpen] = useState(false)
     useEffect(() => {
         const updateConstraints = () => {
@@ -36,26 +34,20 @@ const Menu: React.FC = () => {
     useEffect(() => {
         // معالج تغيير حجم النافذة
         const handleResize = () => {
-            setWindowWidth(window.innerWidth);
-        };
-
-        console.log(windowWidth)
-
+          setWindowWidth(window.innerWidth);
+        };      
         // إضافة معالج لحدث تغيير حجم النافذة
         window.addEventListener('resize', handleResize);
-
+      
         // إزالة معالج الحدث عند تفكيك المكون
         return () => window.removeEventListener('resize', handleResize);
-    }, []); // فارغة لضمان تشغيل التأثير مرة واحدة فقط
+      }, []); // Add windowWidth to the dependency array
 
     const listItemVariants = {
         hidden: { opacity: 0, y: -20, transition: { duration: 0.3 } },
         visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
         exit: { opacity: 0, y: 20, transition: { duration: 0.3 } } // تحديد تأثير الخروج
     };
-
-
-
     const containerVariants = {
         hidden: { opacity: 0, scale: 0.95, transition: { duration: 0.3 } },
         visible: {
