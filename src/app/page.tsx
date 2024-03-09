@@ -259,7 +259,7 @@ export default function Home() {
         </Grid>
       </Grid>
 
-      <Popup isOpen={isPopup} onClose={closePopup} typeAction={typeActionModel}/>
+      {/* <Popup isOpen={isPopup} onClose={closePopup} typeAction={typeActionModel}/> */}
       
       
     </div>
