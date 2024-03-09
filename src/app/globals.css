@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: #16191C;
+}
+
+.background-elment {
+
+  background: linear-gradient(to right, #000000 100%, #16191C 50%);
+}
+
+.menu-style {
+  backdrop-filter: blur(5px);
+  /* تطبيق تأثير الضبابية */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  /* إضافة ظل */
+  width: 100px;
+  /* عرض العنصر */
+  height: 80%;
+  /* ارتفاع العنصر */
+  border-radius: 10px;
+  /* تدوير الحواف */
+  background-color: #0b0c0e;
+  /* لون الخلفية */
+  display: flex;
+  /* جعل العنصر يستخدم flexbox */
+  align-items: center;
+  /* محاذاة العناصر الداخلية في المركز */
+  justify-content: center;
+  /* محاذاة العناصر الداخلية في المركز */
+  cursor: grab;
+  /* تغيير شكل المؤشر */
+  position: absolute;
+  z-index: 100;
+  top: 50px;
+  left: 50px;
+}
+
+.flex-center-col {
+  display: flex;
+  /* يعادل flex */
+  flex-direction: column;
+  /* يعادل flex-col */
+  justify-content: center;
+  /* يعادل justify-center */
+  align-items: center;
+  /* يعادل items-center */
+  margin-top: 1rem;
+  /* يعادل mt-4 (يعتمد على حجم الجذر المحدد) */
+  margin-bottom: 1rem;
+  /* يعادل mb-4 (يعتمد على حجم الجذر المحدد) */
+  gap: 80px;
+  /* يعادل space-y-[80px] (تم تطبيق gap بدلاً من margin بين العناصر الفرعية) */
+}
+
+.text-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  /* هذا يعتمد على حجم الجذر الافتراضي الذي هو عادة 16px */
+  margin-bottom: 1rem;
+  gap: 50px;
+  /* يستخدم 'gap' لتطبيق المسافة بين العناصر الفرعية في flex column */
+}
+
+@media (max-width: 600px) {
+  .menu-style {
+    width: 100%;
+    /* عرض العنصر */
+    height: 10%;
+    /* ارتفاع العنصر */
+    top: 0;
+    left: 0px;
+  }
+
+  .flex-center-col {
+    display: flex;
+    /* يعادل flex */
+    flex-direction: row;
+    /* يعادل flex-col */
+    justify-content: space-around;
+
+    /* يعادل justify-center */
+    align-items: center;
+    /* يعادل items-center */
+    margin-top: 1rem;
+    /* يعادل mt-4 (يعتمد على حجم الجذر المحدد) */
+    margin-bottom: 1rem;
+    /* يعادل mb-4 (يعتمد على حجم الجذر المح
+    /* يعادل space-y-[80px] (تم تطبيق gap بدلاً من margin بين العناصر الفرعية) */
+    position: relative;
+    width: 100%;
+    
+  }
+
+  .text-menu {
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 120px;
+    left: 20px;
+    width: 80%;
+    background-color: #0b0c0e;
+    gap: 10px;
+    border: 20px;
+    box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.5);
+  }
+  .open {
+    display: flex; 
+  }
+}
+
+/* يمكنك أيضًا إضافة استعلامات إعلامية لأحجام شاشات أخرى */
+@media (max-width: 768px) {
+  .my-class {
+    /* خصائص CSS للأجهزة اللوحية */
+  }
+}
+
+/* ولشاشات أكبر حجماً */
+@media (min-width: 1024px) {
+  .my-class {
+    /* خصائص CSS للشاشات الكبيرة مثل الأجهزة المكتبية */
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
