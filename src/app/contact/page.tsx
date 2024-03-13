@@ -16,7 +16,6 @@ type TextFieldProps = {
     borderColor?: string;
 };
 export default function contact() {
-    const OuterTheme = useTheme();
     const MotionBox = styled(motion.div)({});
     const myStyles = {
         sx: {
