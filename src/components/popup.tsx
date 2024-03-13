@@ -15,7 +15,6 @@ interface PopupProps {
 const  Popup: React.FC<PopupProps> = ({ isOpen, onClose, typeAction }) => {
   const MotionBox = styled(motion.div)({});
   const [isLoading, setIsLoading] = useState(true);
-  console.log(typeAction)
   useEffect(() => { 
     if (isOpen) {
       // هذه الدالة تُستدعى فقط عند فتح الـPopup
@@ -55,12 +54,12 @@ const  Popup: React.FC<PopupProps> = ({ isOpen, onClose, typeAction }) => {
                 <p>Link preparation has been completed</p>
                 {
                 typeAction == "Palestine" ? (
-                  <Button variant="contained">Palestine Link</Button>
+                  <Button variant="contained"><a href="https://youtu.be/1RXycTCh49U?si=910Od2lsPe0tH5yl" target="_blank"  >Palestine issue</a></Button>
                 ) : (
                   typeAction == "Social media" ? (
                     <Box className={""} sx={{width:"100%" , display:"flex", flexDirection:{xs:"column" , sm:"column",md:"row"} , height:{xs:"80%" ,sm:"80%" , md:"auto" } , justifyContent:"space-around",textAlign:{xs:"center",sm:"center",md:"left"}}}  >
-                      <Button  variant="outlined">Discord Link</Button>
-                      <Button  variant="outlined">Github Link</Button>
+                      <Button  variant="outlined"><a href="https://www.instagram.com/s.a.ifi/" target="_blank"  >Instagram</a></Button>
+                      <Button  variant="outlined"><a href="https://github.com/MohammedSaifiCoder" target="_blank"  >Github</a></Button>
                     </Box>
                   ) : (
                     typeAction == "phone" ? (

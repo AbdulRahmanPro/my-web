@@ -7,13 +7,13 @@
   import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
   import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
   import { faGithub, faDiscord } from '@fortawesome/free-brands-svg-icons'
+  import dynamic from 'next/dynamic';
   import AnimatedNumbers from "@/components/AnimatedNumbers"
   import Popup from "@/components/popup"
-  import Menus from "@/components/menu"
-
   type ProgressState = Record<string, number>;
   type CompletedSkillsState = Record<string, boolean>;
-  
+  const Menus = dynamic(() => import('@/components/menu'), { ssr: false });
+
   
   export default function Home() {
 

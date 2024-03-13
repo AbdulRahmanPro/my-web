@@ -97,7 +97,7 @@ const Menu: React.FC = () => {
                         exit="hidden"
                         transition={{ duration: 0.5 }}
                     >
-                        <Link href="/">Home</Link>
+                        <Link className='   p-5' href="/">Home</Link>
                     </motion.li>
                     <motion.li
                         variants={listItemVariants}
@@ -106,7 +106,7 @@ const Menu: React.FC = () => {
                         exit="hidden"
                         transition={{ duration: 0.5, delay: 0.1 }}
                     >
-                        <Link href="/about">About</Link>
+                        <Link className='   p-5' href="/about">About</Link>
                     </motion.li>
                     <motion.li
                         variants={listItemVariants}
@@ -115,7 +115,7 @@ const Menu: React.FC = () => {
                         exit="hidden"
                         transition={{ duration: 0.5, delay: 0.2 }}
                     >
-                        <Link href="/contact">Contact</Link>
+                        <Link className='p-5' href="/contact">Contact</Link>
                     </motion.li>
                     <motion.li
                         variants={listItemVariants}
@@ -124,7 +124,7 @@ const Menu: React.FC = () => {
                         exit="hidden"
                         transition={{ duration: 0.5, delay: 0.3 }}
                     >
-                        <Link href="/projects">Projects</Link>
+                        <a href="https://www.upwork.com/" target="_blank" className='p-5' >upowrk</a>
                     </motion.li>
                 </motion.div>
             </ul>
