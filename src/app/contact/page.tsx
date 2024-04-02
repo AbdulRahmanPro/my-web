@@ -45,7 +45,6 @@ export default function contact() {
     }
     return (
         <>
-            <Menu />
             <Box className={" flex flex-row justify-center items-center  "} sx={{ width: "100%", height: "110vh" }}>
                 <Grid container columns={{ xs: 2, sm: 2, md: 2 }} spacing={{ xs: 0, sm: 0, md: 4 }} sx={{ width: "70%", maxWidth: "70%", height: { xs: "100%", sm: "100%", md: "70%" }, padding: { xs: "20px", sm: "20px", md: "40px" }, bgcolor: "#0b0c0e", borderRadius: "25px", backdropFilter: 'blur(10px)', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)' }}>
                     <Grid item xs={2} md={1} sx={{ display: "flex", flexDirection: "column", justifyContent: "start", height: { xs: "50%", sm: "50%", md: "100%" } }}   >

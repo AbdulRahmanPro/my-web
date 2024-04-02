@@ -72,15 +72,14 @@
     }
     return (
       <>
-        <Menus />
         <Grid container rowSpacing={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }} spacing={1} sx={{ width: '100%', minHeight: '100vh', pl: { xs: 2, sm: 3, md: 25 }, pr: { xs: 2, sm: 3, md: 25 }, pt: 10 }}>
           <Grid item xs={12} md={6} sx={{ height: '40vh' }}>
             <BoxS className={" flex   justify-evenly "}>
               <Image layout="responsive" className=' max-w-40' alt='logo' src={'./logo.svg'} width={171} height={194} />
-              < Box className={" max-w-min max-h-min"} sx={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "start", textAlign: "left" }}>
+              < Box className={"max-h-min"} sx={{ display: "flex", flexDirection: "column",maxWidth:"150px", justifyContent: "center", alignItems: "start", textAlign: "left" }}>
                 <p className=' ml-1 text-[#C0C0C0]  text-xs'>A WEB DEVLOPER</p>
-                <h1 className=' text-2xl'>Mohammed</h1>
-                <h2 className=' text-2xl'>Saifi</h2>
+                <h1 className=' text-2xl'>Nedal</h1>
+                <h2 className=' text-2xl'>Daher</h2>
                 <p className=' text-xs '>Professional software developer specializing </p>
                 <p className=' text-xs '>in the web</p>
               </Box>
@@ -146,7 +145,7 @@
                   <Image alt='Image CV' src={"./CV.svg"} width={131} height={115} />
                 </Grid>
                 {/* عنصر الشبكة للنص وأيقونة التحميل */}
-                <Grid className=' space-x-20' item xs={12} sm={6} md={6} sx={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', textAlign: 'center' }}>
+                <Grid className=' space-x-10' item xs={12} sm={6} md={6} sx={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', textAlign: 'center' }}>
                   <Box sx={{ textAlign: 'left' }}>
                     <Typography color="#C0C0C0" sx={{ fontSize: "10px" }}>My Cv</Typography>
                     <Typography sx={{ fontSize: "20px" }}>Download</Typography>
@@ -177,10 +176,10 @@
                   <Image alt='Image CV' src={"./Mobile Phone.svg"} width={131} height={115} />
                 </Grid>
                 {/* عنصر الشبكة للنص وأيقونة التحميل */}
-                <Grid className=' space-x-20' item xs={12} sm={6} md={6} sx={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', textAlign: 'center' }}>
+                <Grid className=' space-x-10' item xs={12} sm={6} md={6} sx={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', textAlign: 'center' }}>
                   <Box sx={{ textAlign: "left" }}>
                     <Typography color="#C0C0C0" sx={{ fontSize: "10px" }}>My Phone</Typography>
-                    <Typography className=' w-max' sx={{ fontSize: "20px" }}>Cal Me</Typography>
+                    <Typography className=' w-max' sx={{ fontSize: "20px" }}>Call Me</Typography>
                   </Box>
                   <motion.span
                     whileHover={{

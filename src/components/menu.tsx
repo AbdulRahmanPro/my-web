@@ -1,53 +1,41 @@
 import Avatar from '@mui/material/Avatar';
 import Link from 'next/link';
-import React ,{ useEffect, useState }  from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Box } from '@mui/material';
+
 const Menu: React.FC = () => {
     const [constraints, setConstraints] = useState({ left: 0, right: 0, top: 0, bottom: 0 });
     const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 0);
-    const [isOpen,setIsOpen] = useState(false)
+    const [isOpen, setIsOpen] = useState(false);
+    const [isClient, setClient] = useState(false)
+
     useEffect(() => {
-        const updateConstraints = () => {
-            const width = window.innerWidth;
-            const height = window.innerHeight;
-
-            const newConstraints = {
-                left: width > 500 ? -100 : -width / 5,
-                right: width > 500 ? 1000 : width / 2,
-                top: height > 500 ? -250 : -height / 2,
-                bottom: height > 500 ? 250 : height / 2,
-            };
-
-            setConstraints(newConstraints);
-
-            // طباعة القيود في وحدة التحكم
-            console.log("Constraints:", newConstraints);
+        const updateWindowWidth = () => {
+            setWindowWidth(window.innerWidth);
         };
 
-        updateConstraints();
-        window.addEventListener('resize', updateConstraints);
+        updateWindowWidth(); // Update width on component mount
 
-        return () => window.removeEventListener('resize', updateConstraints);
-    }, []);
+        // Add event listener to update width on window resize
+        window.addEventListener('resize', updateWindowWidth);
+
+        // Remove event listener on component unmount
+        return () => {
+            window.removeEventListener('resize', updateWindowWidth);
+        };
+    }, []); // Empty dependency array to run effect only once on component mount
     useEffect(() => {
-        // معالج تغيير حجم النافذة
-        const handleResize = () => {
-          setWindowWidth(window.innerWidth);
-        };      
-        // إضافة معالج لحدث تغيير حجم النافذة
-        window.addEventListener('resize', handleResize);
-      
-        // إزالة معالج الحدث عند تفكيك المكون
-        return () => window.removeEventListener('resize', handleResize);
-      }, []); // Add windowWidth to the dependency array
+        setClient(true);
+    }, []);
 
     const listItemVariants = {
         hidden: { opacity: 0, y: -20, transition: { duration: 0.3 } },
         visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-        exit: { opacity: 0, y: 20, transition: { duration: 0.3 } } // تحديد تأثير الخروج
+        exit: { opacity: 0, y: 20, transition: { duration: 0.3 } }
     };
+
     const containerVariants = {
         hidden: { opacity: 0, scale: 0.95, transition: { duration: 0.3 } },
         visible: {
@@ -55,41 +43,33 @@ const Menu: React.FC = () => {
             scale: 1,
             transition: {
                 staggerChildren: 0.1,
-                when: "beforeChildren", // لضمان أن يبدأ الأطفال في الظهور بعد ظهور الحاوية
+                when: "beforeChildren",
             },
         },
-        exit: { opacity: 0, scale: 0.95, transition: { duration: 0.3 } } // تحديد تأثير الخروج
+        exit: { opacity: 0, scale: 0.95, transition: { duration: 0.3 } }
     };
 
     const handleMenuClick = () => {
-        // أكواد للتعامل مع الضغط على الأيقونة
-        setIsOpen(!isOpen)
-        console.log(isOpen)
+        setIsOpen(!isOpen);
     };
+
     return (
         <motion.div
-            drag // تمكين السحب
+            drag
             transition={{ type: "spring", stiffness: 600, damping: 30 }}
-            dragConstraints={constraints} // استخدام القيود الديناميكية
-            dragElastic={0.1} // مقدار المرونة في السحب
-            dragMomentum={true} // ما إذا كان العنصر يجب أن يحتفظ بالزخم بعد التوقف عن سحبه
+            dragConstraints={constraints}
+            dragElastic={0.1}
+            dragMomentum={true}
             className={"menu-style"}
-
         >
             <ul className="flex-center-col">
-                <Box sx={{ display: "flex", width: "100%", justifyContent: "space-around", alignItems: "center",  }}>
-                    <Avatar
-                        alt="logo"
-                        src="/نوبي العزيز.png"
-
-                    />
-                    {
-                        windowWidth < 600 ? <MenuIcon onClick={handleMenuClick} /> : null
-                    }
+                <Box sx={{ display: "flex", width: "100%", justifyContent: "space-around", alignItems: "center" }}>
+                    {isClient && <Avatar alt="logo" src="./logo.svg" />}
+                    {windowWidth < 600 && <MenuIcon onClick={handleMenuClick} />}
                 </Box>
                 <motion.div
                     variants={containerVariants}
-                    className={`text-menu ${isOpen ?  "open" : ""}` } >
+                    className={`text-menu ${isOpen ? "open" : ""}`} >
                     <motion.li
                         variants={listItemVariants}
                         initial="hidden"
@@ -132,4 +112,4 @@ const Menu: React.FC = () => {
     );
 }
 
-export default Menu
+export default Menu;
