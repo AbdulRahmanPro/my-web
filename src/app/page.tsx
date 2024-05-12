@@ -78,8 +78,8 @@
               <Image layout="responsive" className=' max-w-40' alt='logo' src={'./logo.svg'} width={171} height={194} />
               < Box className={"max-h-min"} sx={{ display: "flex", flexDirection: "column",maxWidth:"150px", justifyContent: "center", alignItems: "start", textAlign: "left" }}>
                 <p className=' ml-1 text-[#C0C0C0]  text-xs'>A WEB DEVLOPER</p>
-                <h1 className=' text-2xl'>Nedal</h1>
-                <h2 className=' text-2xl'>Daher</h2>
+                <h1 className=' text-2xl'>Sanad</h1>
+                <h2 className=' text-2xl'>Alshrbaji</h2>
                 <p className=' text-xs '>Professional software developer specializing </p>
                 <p className=' text-xs '>in the web</p>
               </Box>

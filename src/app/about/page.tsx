@@ -29,7 +29,7 @@ export default function about_me() {
                     <Box className={"space-y-5"} sx={{maxWidth:{xs:"300px",sm:"300px",md:"400px"}, textAlign:"center"}}>
                         <Typography variant="h3">HELLO !</Typography>
                         <Typography variant="subtitle2">The satisfaction of Allah Almighty is the key to life.</Typography>
-                        <Typography variant="subtitle2">Hello 👋, my name is Nadel. I strive to succeed in my life and in my work 💼. I aspire to become a professional software developer 💻, and also to achieve wealth 💰, but not at the expense of my Hereafter.</Typography>
+                        <Typography variant="subtitle2">Hello 👋, my name is Sanad . I strive to succeed in my life and in my work 💼. I aspire to become a professional software developer 💻, and also to achieve wealth 💰, but not at the expense of my Hereafter.</Typography>
                     </Box>
                 </Grid>
             </Grid>
